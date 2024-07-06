@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #F47DC4;
+    --secondary-color: #D697FD;
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #6A02AB;
+    --line-color: #4C7DF9;
+    --main-letter: italic;
+
+}
