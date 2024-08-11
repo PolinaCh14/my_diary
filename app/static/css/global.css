@@ -11,5 +11,6 @@
     --secondary-text-color: #6A02AB;
     --line-color: #4C7DF9;
     --main-letter: italic;
-
+    --error-text-color:#DEFF15;
+    --hint-color: #6100C9;
 }
