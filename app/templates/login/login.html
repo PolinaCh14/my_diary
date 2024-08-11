@@ -1,0 +1,47 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="div-login-form">
+    <div class="div-login-form-main">
+        <div class="div-login-form__form-circle">
+            <div class="form-circle"></div>
+            <div class="form-circle"></div>
+            <div class="form-circle"></div>
+            <div class="form-circle"></div>
+            <div class="form-circle"></div>
+        </div>
+        <div class="div-login-form__login-form">
+            <div class="div-login-form__login-form-title">
+                <h3 class="div-login-form__title">Login</h3>
+            </div>
+            <div class="div-login-form__login-form-div-text">
+                <p class = "div-login-form__login-form-text">If you don't have account, please go to <a class = "div-login-form__login-form-div-link" href="{{ url_for('login.signup') }}">sign up page</a>.</p>
+            </div>
+            <div class="div-login-form__error-container">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <p class="div-login-form__login-form-error">{{ messages[0] }}</p>
+                {% endif %}
+                {% endwith %}
+            </div>
+            <form class = "div-login-form__login-form-form" action="/login/login" method="POST">
+                <div class="div-login-form__field">
+                    <input class="div-login-form__field-text" type="email" name="email" placeholder="Email" autofocus="">
+                </div>
+    
+                <div class="div-login-form__field">
+                    <input class="div-login-form__field-text" type="password" name="password" placeholder="Password">
+                </div>
+                    
+                <div class="div-login-form__field">
+                    <label class="div-login-form__field-text_check">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+                </div>
+                <button class="div-login-form__field-buttom">Log in</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

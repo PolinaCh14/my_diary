@@ -1,24 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'header.html' %}
 
 {% block content %}
-    <span class="title"><h1>{% block title %} The Users Page333 {% endblock %}</h1></span>
-    <div class="content">
-        <h2>This is the posts Flask blueprint</h2>
-        {% for user in users %}
-            <div class="post">
-                <p><b>#{{ user.id_user }}</b></p>
-                <p class="title">
-                    <b>
-                        <a href="#">
-                            {{ user.name }}
-                        </a>
-                    </b>
-                </p>
-                <div class="content">
-                    <p>{{ user.birthday }}</p>
-                </div>
-                <hr>
-            </div>
-        {% endfor %}
-    </div>
+<h1 class="title">
+  Welcome, {{ name }}!!!
+</h1>
 {% endblock %}

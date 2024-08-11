@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', filename='img/logo-diary.jpg') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY DIARY</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="div-nav">
+            <div class="div-nav__logo-letter">
+                <a href="{{ url_for('main.index') }}" class="logo-letter">My diary</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div class="div-nav__ham-line"></div>
+                <div class="div-nav__ham-line"></div>
+                <div class="div-nav__ham-line"></div>
+            </div>
+            <div class="div-nav__inform" id="nav-links">
+                {% if not current_user.is_authenticated %}
+                <nav class="div-nav__nav">
+                    <a href="{{ url_for('login.signup') }}" class="div-nav__nav-link">Start to write</a>
+                </nav>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <nav class="div-nav__nav">
+                    <a href="{{ url_for('users.index') }}" class="div-nav__nav-link">Profile</a>
+                </nav>
+                <nav class="div-nav__nav">
+                    <a href="{{ url_for('login.logout') }}" class="div-nav__nav-link">Exit</a>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
