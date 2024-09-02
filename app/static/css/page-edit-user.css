@@ -1,0 +1,130 @@
+.div-edit-user{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.div-edit-user-block{
+    margin-top: 50px;
+    background-color: var(--primary-text-color);
+    border-radius: 20px;
+    border: solid;
+    border-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 430px;
+    width: 280px;
+    gap: 40px;
+}
+
+.div-edit-user-block__title{
+    margin-top: 30px;
+}
+
+.div-edit-user-block__title-text{
+    font-family: var(--main-letter);
+    font-size: 24px;
+    color: var(--secondary-text-color);
+    text-align: center;
+}
+
+.div-edit-user-block__form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.div-edit-user-block__form-error-text{
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--main-letter);
+    font-size: 17px;
+    color: var(--edit-error-text-color);
+}
+
+.div-edit-user-block__form-data{
+    font-family: var(--main-letter);
+    font-size: 17px;
+    color: var(--secondary-text-color);
+    text-align: center;
+}
+
+.div-edit-user-block__form-data-text input{
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: var(--main-letter);
+    font-size: 17px;
+    color: var(--secondary-text-color);
+}
+
+.div-edit-user-block__form-line{
+    border-top: 1px solid var(--primary-color);
+    width: 220px; 
+    margin: auto;
+}
+
+.div-edit-user-block__form-data-mini-text{
+    font-family: var(--main-letter);
+    font-size: 15px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.div-edit-user-block__form-button-text{
+    width: 100px;
+    height: 40px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-family: var(--main-letter);
+    font-size: 17px;
+    color: var(--primary-text-color);
+    border: none;
+}
+
+@media (min-width: 768px){
+    .div-edit-user-block{
+        height: 450px;
+        width: 450px;
+        gap: 50px;
+    }
+
+    .div-edit-user-block__title{
+        margin-top: 40px;
+    }
+
+    .div-edit-user-block__form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .div-edit-user-block__form-data-text input{
+        border: none;
+        outline: none;
+        width: 100%;
+        font-family: var(--main-letter);
+        font-size: 20px;
+        color: var(--secondary-text-color);
+    }
+
+    .div-edit-user-block__form-line{
+        border-top: 1px solid var(--primary-color);
+        width: 360px; 
+        margin: auto; 
+    }
+}

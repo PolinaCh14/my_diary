@@ -89,6 +89,7 @@
         width: 100%;
         height: 40vh;
         transition: height 0.3s ease-in-out;
+        z-index: 1000;
     }
 
     .div-nav.active .div-nav__inform {

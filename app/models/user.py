@@ -1,6 +1,7 @@
 from app.extensions import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from flask import flash
 
 class Users(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -19,3 +20,25 @@ class Users(UserMixin, db.Model):
     def get_id(self):
         return self.id_user
     
+    @staticmethod
+    def get_by_email(email):
+        user = Users.query.filter_by(email = email).first()
+        return user
+    
+    def update(self, 
+               email=None, 
+               name=None, 
+               surname=None, 
+               birthday=None):
+        if email:
+            existing_user = Users.query.filter_by(email=email).first()
+            if existing_user and existing_user.id_user != self.id_user:
+                raise ValueError("Email address already exists.")
+            self.email = email
+        if name:
+            self.name = name
+        if surname:
+            self.surname = surname
+        if birthday:
+            self.birthday = birthday
+        db.session.commit()

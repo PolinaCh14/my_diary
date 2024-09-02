@@ -4,13 +4,26 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
 :root {
     --primary-color: #F47DC4;
     --secondary-color: #D697FD;
+    --background-color:#dfb3fb;
     --primary-text-color: #FFFFFF;
     --secondary-text-color: #6A02AB;
     --line-color: #4C7DF9;
     --main-letter: italic;
     --error-text-color:#DEFF15;
+    --edit-error-text-color:#15c1ff;
     --hint-color: #6100C9;
 }
