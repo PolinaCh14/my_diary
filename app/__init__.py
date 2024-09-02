@@ -38,6 +38,9 @@ def create_app(config_class=Config):
     from app.users import bp as users_bp
     app.register_blueprint(users_bp, url_prefix='/users')
 
+    from app.note import bp as note_bp
+    app.register_blueprint(note_bp, url_prefix='/note')
+
     @app.route('/test/')
     def test_page():
         return '<h1>Testing the Flask Application Factory Pattern</h1>'

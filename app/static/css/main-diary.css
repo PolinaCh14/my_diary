@@ -1,3 +1,4 @@
+
 .main-diary{
     display: flex;
     flex-direction: column;
@@ -37,6 +38,7 @@
     height: 300px;
     border-radius: 20px;
     border: 2px solid var(--secondary-color);
+    background-color: var(--primary-text-color);
 }
 
 .main-diary__firs-page-circle, .main-diary__second-page-circle{

@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
 from app.models.user import Users
 from app import db
-import re
+from app.services import check_user_gmail, check_user_password
 
 @bp.route('/login')
 def login():
@@ -17,7 +17,7 @@ def login_post():
     password  = request.form.get('password')
     remember = True if request.form.get('remember') else False
 
-    user = Users.query.filter_by(email=email).first()
+    user = Users.get_by_email(email)
     
     if not user or not check_password_hash(user.password, password):
         flash('Please check your email or login')
@@ -26,22 +26,11 @@ def login_post():
     
     login_user(user, remember=remember)
 
-    return redirect(url_for('users.index'))
+    return redirect(url_for('note.notes'))
 
 @bp.route('/signup')
 def signup():
     return render_template('login/signup.html')
-
-
-def check_user_password(passwd):
-    if not re.search(r"^(?=.*\d).{5,10}$",passwd):
-        return False
-    return True
-
-def check_user_gmail(email):
-    if not re.search(r"^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", email):
-        return False
-    return True
 
 
 @bp.route('/signup', methods=['POST'])
@@ -53,7 +42,7 @@ def signup_post():
     birthday = request.form.get('birthday')
     remember = True if request.form.get('remember') else False
 
-    user = Users.query.filter_by(email = email).first()
+    user = Users.get_by_email(email)
 
     if user:
         flash('Email address already exists.')
@@ -76,7 +65,7 @@ def signup_post():
 
     login_user(new_user, remember=remember)
 
-    return redirect(url_for('users.index'))
+    return redirect(url_for('note.notes'))
 
 @bp.route("/logout")
 @login_required

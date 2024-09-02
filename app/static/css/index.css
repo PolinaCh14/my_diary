@@ -2,4 +2,6 @@
 @import "guest.header.css";
 @import "main-diary.css";
 @import "signup.css";
-@import "login.css"
+@import "login.css";
+@import "page-user.css";
+@import "page-edit-user.css";
