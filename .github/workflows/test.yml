@@ -28,7 +28,7 @@ jobs:
       - name: Check migration
         run: |
           git fetch origin ${{ github.base_ref }}
-          CHANGED=$(git diff --name-only origin/${{ github.base_ref }} HEAD | grep '^prisma/' || true)
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '^prisma/' || true)
           
           if ! [ -n "$CHANGED" ]; then
             curl -s -X POST \
